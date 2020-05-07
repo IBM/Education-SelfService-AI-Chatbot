@@ -103,6 +103,21 @@ NLU enriches Discovery by creating the addition of metadata tags to your data se
 2. Run the script < xxxx > to convert the `.csv` file to a `.json` file format.  This is the file you will upload later into the Watson Discovery collection.  
 
 
+-  Install [Node.js](https://nodejs.org) (Versions >= 6).
+
+-  In the root directory of your repository, install the dependencies.
+```bash
+npm install
+```
+
+ - Copy contents of csv file to test-data.csv. (test-data.csv file) is present in the top level directory.
+ - Run below command
+ ```
+ node read-file.js 
+ ```
+- Verify JSON files are created in `./manualdocs` directory.
+
+
 ## 5. Configure Watson Discovery
 
 ### Create Discovery Collection

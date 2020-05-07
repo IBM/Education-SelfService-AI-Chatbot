@@ -123,9 +123,6 @@ NLU enriches Discovery by creating the addition of metadata tags to your data se
 
 <p style="color:red">add screen video of configuring Discovery</p>
 
-add screen video of configuring Discovery
-{: .alert .alert-danger}
-
 <p style="color:red">QUESTION: since we enriched the data set with NLU - do we still need to configure Discovery separately on the enrichment tab??</p>
 
 > **NOTE:** If using the Discovery Lite plan, you are limited to loading up to 1000 files into your discovery service. This limit is not per collection, but the combined number for all collections in your service.
@@ -159,14 +156,9 @@ You will see that you now have the ability to add a:
 
 * Click on `Import`
 
-You will see that the dialog has been imported. Click on the words Student-skill and explore the dialog to see the intents, entities, dialog.  You can also add to the dialog to extend the conversation.
+You will see that the dialog has been imported. Click on the words `Student-skill` and explore the dialog to see the intents, entities, dialog.  You can also add to the dialog to extend the conversation.
 
 > **Note:** you can also create your dialog from scratch by selecting `Create skill` and adding in your own intents, entities and dialog.
-
-Next, you will add a `Search Skill`
-
-* Click on `Add search skill`
-
 
 ### Create Assistant search skill
 
@@ -194,11 +186,11 @@ Learn more about the assistant search skill [here](https://cloud.ibm.com/docs/as
 
 ### Enable search skill
 
-From your Assistant panel, click on the three dots in the upper right-hand corner and select `Settings`.
+* From your Assistant panel, click on the three dots in the upper right-hand corner and select `Settings`.
 
 <p style="color:red">add screen video of settings panel</p>
 
-Select the `Search Skill` tab and ensure that is in `Enabled`.
+* Select the `Search Skill` tab and ensure that is in `Enabled`.
 
 > **NOTE**: The following feature is currently only available for Watson Assistant provisioned on IBM Cloud.
 
@@ -207,6 +199,7 @@ Select the `Search Skill` tab and ensure that is in `Enabled`.
 Normally, you can test the dialog skill be selecting the `Try it` button located at the top right side of the dialog skill panel, but when integrated with a search skill, a different method of testing must be used.
 
 <p style="color:red">add screen video of assistant panel</p>
+
 From your assistant panel, select `Add Integrations`.
 
 ![assistant-integration-button](doc/source/images/assistant-integration-button.png)

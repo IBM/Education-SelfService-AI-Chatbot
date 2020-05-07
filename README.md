@@ -123,9 +123,8 @@ NLU enriches Discovery by creating the addition of metadata tags to your data se
 
 <p style="color:red">add screen video of configuring Discovery</p>
 
- <!–– and the comment closes with ––>
- <!–– ![API Key](./images/apikey-and-url.png) ––>
-
+add screen video of configuring Discovery
+{: .alert .alert-danger}
 
 <p style="color:red">QUESTION: since we enriched the data set with NLU - do we still need to configure Discovery separately on the enrichment tab??</p>
 

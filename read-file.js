@@ -11,6 +11,9 @@ readFile('./input-data.csv', 'utf-8', (err, fileContent) => {
     }
 
     const directory = './manualdocs';
+    if (!fs.existsSync(directory)){
+        fs.mkdirSync(directory);
+    }
     fs.readdir(directory, (err, files) => {
         if (err) throw err;
 
@@ -25,7 +28,7 @@ readFile('./input-data.csv', 'utf-8', (err, fileContent) => {
     for (let i = 0; i < jsonObj.length; i++){
         try {
             fileName='./manualdocs/' + i +'_manual.json'
-           fs.writeFileSync(fileName, JSON.stringify(jsonObj[i]), { mode: 0o755 });
+            fs.writeFileSync(fileName, JSON.stringify(jsonObj[i]), { mode: 0o755 });
         } catch(err) {
             // An error occurred
             console.error(err);

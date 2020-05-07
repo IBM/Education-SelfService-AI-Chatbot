@@ -2,35 +2,30 @@
 
 
 ## Description
-It is the year 2020 and students are experiencing a new way of life when it comes to getting an education. They are having to self-serve and having access to an intelligent chat bot helps faciltate that process.  This pattern shows how to build a self-service platform that is applicable to not only education, but HR or other industry areas.
+It is the year 2020 and students are experiencing a new way of life when it comes to getting an education. They are having to self-serve to fulfill their academic needs. Having access to an intelligent chat bot will help faciltate that process.  This pattern shows how to build a self-service platform that is applicable to not only education, but HR or other industry areas.
 
-Using Watson Assistant, we will define a dialog to handle conversations between a student and course providers.  Students will ask for course recommendations and want to get details about course subjects.  We further enhance the conversation responses by using Watson Discovery via the Watson Assistant Search skill.  Natural Language Understanding (NLU) is introduced in this pattern to complement Watson Discovery's accuracy extracting custom fields for entities and concepts.
+Using Watson Assistant, we will define a dialog to handle conversations between a student and course providers.  Students will ask for course recommendations that includes details about available course subjects.  We further enhance the conversation responses by using Watson Discovery via the Watson Assistant Search skill.  Natural Language Understanding (NLU) is introduced in this pattern to complement Watson Discovery's accuracy extracting custom fields for entities, concepts and categories.
 
 ### What is an Assistant Search Skill?
 
 An Assistant search skill is a mechanism that allows you to directly query a Watson Discovery collection from your Assistant dialog. A search skill is triggered when the dialog reaches a node that has a search skill enabled. The user query is then passed to the Watson Discovery collection via the search skill, and the results are returned to the dialog for display to the user. Customizing how your documents are indexed into Discovery will improve the answers returned from queries.
 
-Click here for more information about the Watson Assistant search skill.
-
-The developer is interacting with the deployed Assistant URL.   When a student asks a question about a specific course topic, the Assistant dialog skill will communicate with the Discovery servicee using an Assistant search skill. 
-
-### Why Discovery
+Click [here](https://cloud.ibm.com/docs/assistant-data?topic=assistant-data-skill-search-add) for more information about the Watson Assistant search skill.
 
 ### Why NLU
 
-NLU performs text analysis to extract meta-data such as concepts, entities, keywords and other types of categories of words. Data sets are then enriched with NLU-detected entities, keywords and concepts (e.g. course names, science).  Although Discovery provides great results, at times, a developer may find that the results are not getting the relevant results as one would like and may need to improve them. Discovery is built for "long-tail" use cases where the usee case has many varied questions and results that you can't easily anticipate or optimize for. Additionally, if the corpus of documents is relatively small (less than 1000), Discovery doesn't have enough information to separate what terms might be important. Discovery can work with a copora this small - but it is less effective because it has less information abou thte relative frequency of terms in the domain you are working in.
+NLU performs text analysis to extract meta-data such as concepts, entities, keywords and other types of categories of words. Data sets are then enriched with NLU-detected entities, keywords and concepts (e.g. course names, science).  Although Discovery provides great results, at times, a developer may find that the results are not getting the relevant results as one would like and may need to improve them. Discovery is built for "long-tail" use cases where the use case has many varied questions and results that you can't easily anticipate or optimize for. Additionally, if the corpus of documents is relatively small (less than 1000), Discovery doesn't have enough information to separate what terms might be important. Discovery can work with a copora this small - but it is less effective because it has less information about the relative frequency of terms in the domain you are working in.
 
 
-# Flow
+## Flow
 
-<img src="./images/archicture.png" alt="Architecture" /> 
+<img src="./images/architecture.png" alt="Architecture" /> 
 
-1. Manually seed `.json` file with data from course offerings found on the web and add it to the Discovery Collection
-2. Run data set through Natural Language Understanding to extract the meta-data (e.g. course name, desciption,etc) and enrich the Discovery collection
-2. Watson Discovery return cccccc
-3. The user interacts thorugh the chatbot throrugh a Watson Assistant Dialog Skill
+1. Manually seed `.xls` file with data from course offerings found on the web and add it to the Discovery Collection
+2. Run script to run data set through Natural Language Understanding to extract the meta-data (e.g. course name, desciption,etc) and enrich the Discovery collection
+3. The user interacts through the chatbot via a Watson Assistant Dialog Skill
 4. When the student asks about course information, a search query is issued to the Watson Discovery service through a Watson Assistant search skill
-5. xxxxxxx
+5. Discovery has been enriched from the data set run through NLU. It returns responses to the dialog
 
 ## Included components
 
@@ -43,19 +38,18 @@ NLU performs text analysis to extract meta-data such as concepts, entities, keyw
 * [Node.js](https://nodejs.org/): An asynchronous event driven JavaScript runtime, designed to build scalable applications.
 
 
-# Pre-requsites
+## Pre-requsites
 
 * [IBM Cloud Account](https://cloud.ibm.com/).
-* [Python](https://www.python.org/downloads/), version preferably > 3.7,  installed on your PC.
-* Basic familiarity of [IBM Cloud](https://cloud.ibm.com/), [Assistant service](https://cloud.ibm.com/docs/assistant?topic=assistant-getting-started), [Natural Language Undererstading (NLU) service](https://cloud.ibm.com/docs/services/natural-language-understanding?topic=natural-language-understanding-getting-started#getting-started) and [Discovery service](https://cloud.ibm.com/docs/discovery?topic=discovery-getting-started).
+* Basic familiarity of [IBM Cloud](https://cloud.ibm.com/), [Assistant service](https://cloud.ibm.com/docs/assistant?topic=assistant-getting-started), [Natural Language Understanding (NLU) service](https://cloud.ibm.com/docs/services/natural-language-understanding?topic=natural-language-understanding-getting-started#getting-started) and [Discovery service](https://cloud.ibm.com/docs/discovery?topic=discovery-getting-started).
 
-# Steps
+## Steps
 
 Follow these steps to setup and run this code pattern. The steps are described in detail below.
 
 1. [Clone the Rep](#1-clone-the-repo)
 
-2. [Explore or Create your own Data Set](#2-explorer-or-create-your-own-data-set)
+2. [Explore or Create your own Data Set](#2-explore-or-create-your-own-data-set)
 
 3. [Create IBM Cloud services](#3-create-ibm-cloud-services)
 
@@ -71,7 +65,7 @@ Follow these steps to setup and run this code pattern. The steps are described i
 git clone https://github.com/IBM/Education-SelfService-AI-Assistant
 ```
 
-You will find the datasets in the `Data-Sets` directory.
+You will find the datasets in the [data](./data) directory.
 
 ## 2. Explore or create your own data set
 
@@ -81,14 +75,14 @@ You have the option to create your own data set (.json file) or explore the one 
 
 <details><summary><b>Create your own data set</b></summary>
     
-1. Create a spreadsheet similar to the one in the repo [elementary school data](./data/discovery-nlu/Elementary) Use the same **Column titles**: Course Name, Course Description, Course URL.
-2. Run XXXX script to convert the `.xls` file to a `.csv` file by running NLS against the `.xls` file
+1. Create a spreadsheet similar to the one in the repo [elementary school data](./data/discovery-nlu/Elementary-School-Class-Descriptions.xls) 
+> Use the same **Column titles**: Course Name, Course Description, Course URL
+2. Run XXXX node program to convert the `.xls` file to a `.csv` file by running NLS against the `.xls` file
 3. Run XXX script to convert the `.csv` file to a `.json` file that will ultimately get uploaded to the Discovery collection
 </details>
 
-If you plan to explore the existing file, take a look at 
+If you plan to explore the existing file, take a look at [xxxx.json](./data/xxxx.json)
 
-Create a `.json` file by running the script < **script name** >:   `< **script name**> Elementary-School-Class-Descriptions.xls`
 
 ## 3. Create IBM Cloud services
 
@@ -105,8 +99,8 @@ Create the following services:
 
 NLU enriches Discovery by creating the addition of metadata tags to your data sets.  In otherwords, include terms that overlap with words that users will actually provide in their queries. 
 
-1. Execute <xxx>.js to run Elementary-School-Class-Descriptions.xls through NLU. The program will tag each course with concepts and keywords.  The Node program will then create a `.csv` file.
-2. Run the script <xxxx> to convert the `.csv` file to a `.json` file format.  This is the file you will upload later into the Watson Discovery collection.  
+1. Execute < xxx >.js to run Elementary-School-Class-Descriptions.xls through NLU. The program will tag each course with concepts and keywords.  The Node program will then create a `.csv` file.
+2. Run the script < xxxx > to convert the `.csv` file to a `.json` file format.  This is the file you will upload later into the Watson Discovery collection.  
 
 
 ## 5. Configure Watson Discovery
@@ -117,7 +111,8 @@ NLU enriches Discovery by creating the addition of metadata tags to your data se
 * Click on the service and then click on `Launch Watson Discovery`.
 * Create a new data collection by hitting the `Upload your own data` button. You will see that you have one collection created that comes with Discovery by default. That is the `Watson Discovery News` collection. You will 
 
-  <p style="color:red">add screen video of uploading your collection data</p>
+ 
+  <span style="color:red">add screen video of uploading your collection data</span>
 
   * Provide a collection name
   * Select `English` language
@@ -136,7 +131,7 @@ NLU enriches Discovery by creating the addition of metadata tags to your data se
 
 > **NOTE:** If using the Discovery Lite plan, you are limited to loading up to 1000 files into your discovery service. This limit is not per collection, but the combined number for all collections in your service.
 
-## 6. Configure Watson Assistant
+## 6. Configure Watson Assistant and test the Chatbot
 
 ### Create assistant
 

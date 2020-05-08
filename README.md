@@ -51,15 +51,13 @@ Follow these steps to setup and run this code pattern. The steps are described i
 
 1. [Clone the Rep](#1-clone-the-repo)
 
-2. [Explore or Create your own Data Set](#2-explore-or-create-your-own-data-set)
+2. [Create IBM Cloud services](#2-create-ibm-cloud-services)
 
-3. [Create IBM Cloud services](#3-create-ibm-cloud-services)
+3. [Configure Watson Natural Language Understanding](#3-configure-watson-nlu)
 
-4. [Configure Watson Natural Language Understanding](#4-configure-watson-nlu)
+4. [Configure Watson Discovery](#4-configure-watson-discovery)
 
-5. [Configure Watson Discovery](#5-configure-watson-discovery)
-
-6. [Configure Watson Assistant and Test the Chatbot](#6-configure-watson-assistant-and-test-the-chatbot)
+5. [Configure Watson Assistant and Test the Chatbot](#5-configure-watson-assistant-and-test-the-chatbot)
 
 ## 1. Clone the repo
 
@@ -84,8 +82,8 @@ NLU enriches Discovery by creating the addition of metadata tags to your data se
 
 You have the option to 
 
-A) create your own data set (.json file) or 
-B) create one from the [ElementarySchoolClasses_Analysed.csv](./data/discvery-nlu/ElementarySchoolClasses_Analysed.csv) file
+A) create your own data set (.csv file) and convert it to .json OR
+B) create one from the [input-data.csv](./input-data.csv) file
 
 <details><summary><b>Option A</b></summary>
     
@@ -109,7 +107,6 @@ B) create one from the [ElementarySchoolClasses_Analysed.csv](./data/discvery-nl
 npm install
 ```
 
- - Copy contents of csv file to test-data.csv. (test-data.csv file) is present in the top level directory. ** Do we need this? **
  - Run below command
  ```
  node read-file.js 
@@ -118,7 +115,7 @@ npm install
 
 </details>
 
-** ADD INSTRUCTIONS TO RUN JSON FILESS THROUGH NLU using Ruchi CODE **
+** ADD INSTRUCTIONS TO RUN JSON FILES THROUGH NLU using Ruchi CODE **
 
 
 ## 4. Configure Watson Discovery
@@ -158,7 +155,7 @@ You will see that you now have the ability to add a:
 * Dialog skill
 * Search skill
 
-** ADD SCREEN GIF OF ADDING A DIALOG SKILL ** 
+** ADD GIF OF ADDING A DIALOG SKILL ** 
 
 * Click on `Add dialog skill`
 

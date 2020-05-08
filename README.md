@@ -1,5 +1,7 @@
 # Create a Chatbot experience to help students learning remotely to find courses and develop curriculums
 
+** ADD VIDEO OF RUNNING CHATBOT **
+
 
 ## Description
 It is the year 2020 and students are experiencing a new way of life when it comes to getting an education. They are having to self-serve to fulfill their academic needs. Having access to an intelligent chat bot will help faciltate that process.  This pattern shows how to build a self-service platform that is applicable to not only education, but HR or other industry areas.
@@ -35,7 +37,7 @@ NLU performs text analysis to extract meta-data such as concepts, entities, keyw
 
 ## Featured technologies
 
-* [Node.js](https://nodejs.org/): An asynchronous event driven JavaScript runtime, designed to build scalable applications.
+* [Node.js Versions >= 6](https://nodejs.org/): An asynchronous event driven JavaScript runtime, designed to build scalable applications.
 
 
 ## Pre-requsites
@@ -65,26 +67,7 @@ Follow these steps to setup and run this code pattern. The steps are described i
 git clone https://github.com/IBM/Education-SelfService-AI-Assistant
 ```
 
-You will find the datasets in the [data](./data) directory.
-
-## 2. Explore or create your own data set
-
-You need a data set for both the Discovery colllection and to run through NLU for meta-data extaction and enrichment. 
-
-You have the option to create your own data set (.json file) or explore the one included with this repo.
-
-<details><summary><b>Create your own data set</b></summary>
-    
-1. Create a spreadsheet similar to the one in the repo [elementary school data](./data/discovery-nlu/Elementary-School-Class-Descriptions.xls) 
-> Use the same **Column titles**: Course Name, Course Description, Course URL
-2. Run XXXX node program to convert the `.xls` file to a `.csv` file by running NLS against the `.xls` file
-3. Run XXX script to convert the `.csv` file to a `.json` file that will ultimately get uploaded to the Discovery collection
-</details>
-
-If you plan to explore the existing file, take a look at [xxxx.json](./data/xxxx.json)
-
-
-## 3. Create IBM Cloud services
+## 2. Create IBM Cloud services
 
 Create the following services:
 
@@ -95,13 +78,29 @@ Create the following services:
 > **NOTE**: use the `Plus` offering of Watson Assistant. You have access to a 30 day trial.
 
 
-## 4. Configure Watson NLU
+## 3. Configure Watson NLU
 
 NLU enriches Discovery by creating the addition of metadata tags to your data sets.  In otherwords, include terms that overlap with words that users will actually provide in their queries. 
 
-1. Execute < xxx >.js to run Elementary-School-Class-Descriptions.xls through NLU. The program will tag each course with concepts and keywords.  The Node program will then create a `.csv` file.
-2. Run the script < xxxx > to convert the `.csv` file to a `.json` file format.  This is the file you will upload later into the Watson Discovery collection.  
+You have the option to 
 
+A) create your own data set (.json file) or 
+B) create one from the [ElementarySchoolClasses_Analysed.csv](./data/discvery-nlu/ElementarySchoolClasses_Analysed.csv) file
+
+<details><summary><b>Option A</b></summary>
+    
+- Create a spreadsheet similar to the one in the repo [elementary school data](./data/discovery-nlu/Elementary-School-Class-Descriptions.xls) 
+> Use the same **Column titles**: Course Name, Course Description, Course URL
+
+- Run ** XXXX ** node program to convert the `.xls` file to a `.csv` file. Rename the .csv file to customized-data.csv
+
+- Update the script `read-file.js` by replacing `input-data.csv` to `customize-data.csv`
+
+- Continue by following the instructions in `Option B`.
+
+</details> 
+
+<details><summary><b>Option B</b></summary>
 
 -  Install [Node.js](https://nodejs.org) (Versions >= 6).
 
@@ -110,39 +109,39 @@ NLU enriches Discovery by creating the addition of metadata tags to your data se
 npm install
 ```
 
- - Copy contents of csv file to test-data.csv. (test-data.csv file) is present in the top level directory.
+ - Copy contents of csv file to test-data.csv. (test-data.csv file) is present in the top level directory. ** Do we need this? **
  - Run below command
  ```
  node read-file.js 
  ```
 - Verify JSON files are created in `./manualdocs` directory.
 
+</details>
 
-## 5. Configure Watson Discovery
+** ADD INSTRUCTIONS TO RUN JSON FILESS THROUGH NLU using Ruchi CODE **
+
+
+## 4. Configure Watson Discovery
 
 ### Create Discovery Collection
 
+ ** ADD SCREEN GIF OF UPLOADING COLLECTION DATA ** 
+
 * Find the Discovery service in your IBM Cloud Dashboard.
 * Click on the service and then click on `Launch Watson Discovery`.
-* Create a new data collection by hitting the `Upload your own data` button. You will see that you have one collection created that comes with Discovery by default. That is the `Watson Discovery News` collection. You will 
+* Create a new data collection by hitting the `Upload your own data` button. You will see that you have one collection created that comes with Discovery by default. That is the `Watson Discovery News` collection. 
+* Provide a collection name
+* Select `English` language
+* Click `Create`
 
- 
-  <span style="color:red">add screen video of uploading your collection data</span>
-
-  * Provide a collection name
-  * Select `English` language
-  * Click `Create`
-
-* Use `Drag and drop your documents here or select documents` to seed the content with the documents in `data/discovery-nlu/courses-elementary-78.json` of your cloned repo.
+* Use `Drag and drop your documents here or select documents` to seed the content with the documents in `./manualdocs/` of your cloned repo.
 
 
-<p style="color:red">add screen video of configuring Discovery</p>
-
-<p style="color:red">QUESTION: since we enriched the data set with NLU - do we still need to configure Discovery separately on the enrichment tab??</p>
+** QUESTION: since we enriched the data set with NLU - do we still need to configure Discovery separately on the enrichment tab?? **
 
 > **NOTE:** If using the Discovery Lite plan, you are limited to loading up to 1000 files into your discovery service. This limit is not per collection, but the combined number for all collections in your service.
 
-## 6. Configure Watson Assistant and test the Chatbot
+## 5. Configure Watson Assistant and test the Chatbot
 
 ### Create assistant
 
@@ -159,7 +158,7 @@ You will see that you now have the ability to add a:
 * Dialog skill
 * Search skill
 
-<p style="color:red">add screen video of adding a dialog skill</p>
+** ADD SCREEN GIF OF ADDING A DIALOG SKILL ** 
 
 * Click on `Add dialog skill`
 
@@ -187,7 +186,7 @@ Give your search skill a unique name, then click `Continue`.
 
 From the search skill panel, select the Discovery service instance and collection you created previously.
 
-<p style="color:red">add screen video of adding a dialog skill</p>
+** ADD GIF SHOWING HOW TO ADD A DIALOG SKILL **
 
 > **Note** Assistant can only connect to 1 Discovery collection at a time.  You will use either the elementary or high school collections and then discovery will respond appropriately.
 
@@ -203,7 +202,7 @@ Learn more about the assistant search skill [here](https://cloud.ibm.com/docs/as
 
 * From your Assistant panel, click on the three dots in the upper right-hand corner and select `Settings`.
 
-<p style="color:red">add screen video of settings panel</p>
+** ADD GIF SHOWING WHAT TO DO IN SETTINGS PANEL **
 
 * Select the `Search Skill` tab and ensure that is in `Enabled`.
 
@@ -213,7 +212,7 @@ Learn more about the assistant search skill [here](https://cloud.ibm.com/docs/as
 
 Normally, you can test the dialog skill be selecting the `Try it` button located at the top right side of the dialog skill panel, but when integrated with a search skill, a different method of testing must be used.
 
-<p style="color:red">add screen video of assistant panel</p>
+** ADD GIF SHOWING ASSISTANT PANEL **
 
 From your assistant panel, select `Add Integrations`.
 
@@ -225,7 +224,7 @@ From the `Preview link integration` panel, name your preview link and click `Cre
 
 If you click on the generated URL link, you will be able to interact with your dialog skill. Note that the input "Can you recommend a math class?" has triggered our `Which grade do you want recommendation for` dialog node and invoked our search skill.
 
-<p style="color:red">add screen video of assistant panel</p>
+** ADD GIF OF ASSISTANT PANEL **
 ![preview-link](doc/source/images/preview-link.png)
 
 

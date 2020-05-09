@@ -1,19 +1,19 @@
-const csvjson = require('csvjson');
 const readFile = require('fs').readFile;
 const fs = require('fs')
 const path = require('path');
 
+var csv = require("csvtojson");
 
-readFile('./input-data.csv', 'utf-8', (err, fileContent) => {
-    if(err) {
-        console.log(err); // Do something to handle the error or just throw it
-        throw new Error(err);
-    }
+convert_csv_json();
 
+function convert_csv_json() {
+	input_file1 = './data/discovery-nlu/output/HighSchoolClasses_Analyzed.csv';
+	input_file2 = './data/discovery-nlu/output/ElementarySchoolClasses_Analyzed.csv';
     const directory = './manualdocs';
-    if (!fs.existsSync(directory)){
+	if (!fs.existsSync(directory)){
         fs.mkdirSync(directory);
-    }
+    } 
+	
     fs.readdir(directory, (err, files) => {
         if (err) throw err;
 
@@ -23,19 +23,32 @@ readFile('./input-data.csv', 'utf-8', (err, fileContent) => {
             });
         }
     });
-    const jsonObj = csvjson.toObject(fileContent);
-
-    for (let i = 0; i < jsonObj.length; i++){
-        try {
-            fileName='./manualdocs/' + i +'_manual.json'
-            fs.writeFileSync(fileName, JSON.stringify(jsonObj[i]), { mode: 0o755 });
-        } catch(err) {
-            // An error occurred
-            console.error(err);
-        }
-
-
-    }
-
-});
+	
+	csv()
+	.fromFile(input_file1)
+	.then((jsonObj1)=>{
+	    for (let i = 0; i < jsonObj1.length; i++){
+	        try {
+	            fileName='./manualdocs/' + i +'_high.json'
+	            fs.writeFileSync(fileName, JSON.stringify(jsonObj1[i]), { mode: 0o755 });
+	        } catch(err) {
+	            // An error occurred
+	            console.error(err);
+	        }
+		}
+		csv()
+		.fromFile(input_file2)
+		.then((jsonObj2)=>{
+		    for (let j = jsonObj1.length; j < jsonObj2.length; j++){
+		        try {
+		            fileName='./manualdocs/' + j +'_elementary.json'
+		            fs.writeFileSync(fileName, JSON.stringify(jsonObj2[j]), { mode: 0o755 });
+		        } catch(err) {
+		            // An error occurred
+		            console.error(err);
+		        }
+			}
+		})
+	});	
+}
 

@@ -80,25 +80,15 @@ Create the following services:
 
 NLU enriches Discovery by creating the addition of metadata tags to your data sets.  In otherwords, include terms that overlap with words that users will actually provide in their queries. 
 
-You have the option to 
+- Extract entities and format the `.csv` files in the ./data/discovery-nlu/input directory in preparation for running through NLU. Do this by running the python program:  
+```bash
+cd src
+python NLUEntityExtraction.py
+```
 
-A) create your own data set (.csv file) and convert it to .json OR
-B) create one from the [input-data.csv](./input-data.csv) file
+> This will create 2 `.csv` files in the ./data/discovery-nlu/output directory. Take a look at the format by exploring the files.
 
-<details><summary><b>Option A</b></summary>
-    
-- Create a spreadsheet similar to the one in the repo [elementary school data](./data/discovery-nlu/Elementary-School-Class-Descriptions.xls) 
-> Use the same **Column titles**: Course Name, Course Description, Course URL
-
-- Run ** XXXX ** node program to convert the `.xls` file to a `.csv` file. Rename the .csv file to customized-data.csv
-
-- Update the script `read-file.js` by replacing `input-data.csv` to `customize-data.csv`
-
-- Continue by following the instructions in `Option B`.
-
-</details> 
-
-<details><summary><b>Option B</b></summary>
+- The last step to prepare the data is to create a set `.json` files. This the format that NLU accepts. Run a node program to convert the `.csv` file to a set of `.json` files in a directory named `manualdocs`.
 
 -  Install [Node.js](https://nodejs.org) (Versions >= 6).
 
@@ -108,14 +98,12 @@ npm install
 ```
 
  - Run below command
- ```
+ ```bash
  node read-file.js 
  ```
-- Verify JSON files are created in `./manualdocs` directory.
+- Verify JSON files are created in `../data/manualdocs` directory.
 
 </details>
-
-** ADD INSTRUCTIONS TO RUN JSON FILES THROUGH NLU using Ruchi CODE **
 
 
 ## 4. Configure Watson Discovery
@@ -127,14 +115,11 @@ npm install
 * Find the Discovery service in your IBM Cloud Dashboard.
 * Click on the service and then click on `Launch Watson Discovery`.
 * Create a new data collection by hitting the `Upload your own data` button. You will see that you have one collection created that comes with Discovery by default. That is the `Watson Discovery News` collection. 
-* Provide a collection name
+* Provide a collection name - call it `Courses`
 * Select `English` language
 * Click `Create`
 
-* Use `Drag and drop your documents here or select documents` to seed the content with the documents in `./manualdocs/` of your cloned repo.
-
-
-** QUESTION: since we enriched the data set with NLU - do we still need to configure Discovery separately on the enrichment tab?? **
+* Use `Drag and drop your documents here or select documents` to seed the content with the documents in `./data/manualdocs/` of your cloned repo.
 
 > **NOTE:** If using the Discovery Lite plan, you are limited to loading up to 1000 files into your discovery service. This limit is not per collection, but the combined number for all collections in your service.
 

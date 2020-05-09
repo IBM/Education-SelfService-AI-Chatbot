@@ -1,0 +1,14 @@
+# Copy this file to .env and replace the credentials with
+# your own before starting the app.
+
+#----------------------------------------------------------
+# IBM Cloud
+#
+# If your services are running on IBM Cloud,
+# uncomment and configure these.
+#----------------------------------------------------------
+
+# Watson Natural Language Understanding
+# NATURAL_LANGUAGE_UNDERSTANDING_AUTH_TYPE=iam
+# NATURAL_LANGUAGE_UNDERSTANDING_APIKEY=<add_nlu_apikey>
+# NATURAL_LANGUAGE_UNDERSTANDING_URL=<add_nlu_url>

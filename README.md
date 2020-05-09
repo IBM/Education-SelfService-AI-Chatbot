@@ -1,6 +1,10 @@
 # Create a Chatbot experience to help students learning remotely to find courses and develop curriculums
 
-** ADD VIDEO OF RUNNING CHATBOT **
+<br>
+<p align="center">
+  <img src="GIFs/Assistant.gif">
+</p>
+<br>
 
 
 ## Description
@@ -80,7 +84,9 @@ Create the following services:
 
 ## 3. Configure Watson NLU
 
-NLU enriches Discovery by creating the addition of metadata tags to your data sets.  In otherwords, include terms that overlap with words that users will actually provide in their queries. 
+NLU enriches Discovery by creating the addition of metadata tags to your data sets.  In otherwords, include terms that overlap with words that users will actually provide in their queries.
+
+* Create a copy of the `env-sample` file and call it `.env`. Add in your NLU credentials. 
 
 - Extract entities and format the `.csv` files in the ./data/discovery-nlu/input directory in preparation for running through NLU. Do this by running the python program:  
 ```bash

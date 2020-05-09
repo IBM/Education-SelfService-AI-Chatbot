@@ -38,6 +38,8 @@ NLU performs text analysis to extract meta-data such as concepts, entities, keyw
 ## Featured technologies
 
 * [Node.js Versions >= 6](https://nodejs.org/): An asynchronous event driven JavaScript runtime, designed to build scalable applications.
+* [Python V3.5+](https://www.python.org/downloads/)
+* [Pandas](https://pandas.pydata.org/)
 
 
 ## Pre-requsites
@@ -83,10 +85,14 @@ NLU enriches Discovery by creating the addition of metadata tags to your data se
 - Extract entities and format the `.csv` files in the ./data/discovery-nlu/input directory in preparation for running through NLU. Do this by running the python program:  
 ```bash
 cd src
+pip install watson-developer-cloud==1.5
+pip install --upgrade ibm-watson
+pip install pandas
+sudo pip3 install -U python-dotenv
 python NLUEntityExtraction.py
 ```
 
-> This will create 2 `.csv` files in the ./data/discovery-nlu/output directory. Take a look at the format by exploring the files.
+> Note that this may take a few minutes. This will create 2 `.csv` files in the ./data/discovery-nlu/output directory. Take a look at the format by exploring the files.
 
 - The last step to prepare the data is to create a set `.json` files. This the format that NLU accepts. Run a node program to convert the `.csv` file to a set of `.json` files in a directory named `manualdocs`.
 
@@ -121,6 +127,8 @@ npm install
 
 * Use `Drag and drop your documents here or select documents` to seed the content with the documents in `./data/manualdocs/` of your cloned repo.
 
+> Note that this may take a few minutes. You should see a total of 49 documents.
+
 > **NOTE:** If using the Discovery Lite plan, you are limited to loading up to 1000 files into your discovery service. This limit is not per collection, but the combined number for all collections in your service.
 
 ## 5. Configure Watson Assistant and test the Chatbot
@@ -129,7 +137,7 @@ npm install
 
 * Find the Assistant service in your IBM Cloud Dashboard.
 
-* Click on the service and then click on `Launch tool`.
+* Click on the service and then click on `Launch Watson Assistant`.
 
 * Go to your Assistant tab and click `create assistant`. 
 
@@ -211,6 +219,14 @@ If you click on the generated URL link, you will be able to interact with your d
 
 
 ## Troubleshooting
+
+* Error: If you get an error that says you 
+      > Traceback (most recent call last):
+      > File "NLUEntityExtraction.py", line 4, in <module>
+      > import pandas as pd
+      > ImportError: No module named pandas
+
+      > you need to make sure you are using the same verion of pip and python.  We recommend you use Python 3 and Pip 3
 
 * Error: Unable to list workspaces for Watson Assistant: Forbidden: Access is denied due to invalid credentials.
 

@@ -1,42 +1,68 @@
 
-import sys
 
-from dotenv import load_dotenv, find_dotenv
+
 import os
 import json
 import itertools
 import pandas as pd
-from ibm_watson import NaturalLanguageUnderstandingV1
+
+
+  
+from watson_developer_cloud import NaturalLanguageUnderstandingV1
+from watson_developer_cloud.natural_language_understanding_v1 \
+  import Features, CategoriesOptions, KeywordsOptions, ConceptsOptions
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+
+"""
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+// NaturalLanguageUnderstandingV1 = IAMAuthenticator(os.environ["ibm-watson/natural-language-understanding/v1.js"])
+from ibm_watson import NaturalLanguageUnderstandingV1
 from ibm_watson.natural_language_understanding_v1 import (
     Features,
     CategoriesOptions,
     KeywordsOptions,
-    ConceptsOptions,
-)
-
-# load the .env file containing your environment variables for the required
-load_dotenv(find_dotenv())
-
-"""
-Initialize NLU Instance with Environment Varibles Stored in .env
+    ConceptsOptions,)
 """
 
-authenticator = IAMAuthenticator(os.environ.get('NATURAL_LANGUAGE_UNDERSTANDING_APIKEY'))
 
+"""
+Initialize NLU Instance with Environment Varibles Stored in bot.env
+"""
+#NLU_SERVICE_URL="https://api.eu-gb.natural-language-understanding.watson.cloud.ibm.com/instances/67c17d85-fd76-4005-a6ab-2ad65d995980"
+#NLU_APIKEY="GcLsJAPUlzRn5vFXFggItNMVojU45ZEAKn9VP6fyOT2f"
+
+"""
+authenticator = IAMAuthenticator(os.environ["NATURAL_LANGUAGE_UNDERSTANDING_APIKEY"]) 
 natural_language_understanding = NaturalLanguageUnderstandingV1(
     version="2019-07-12", authenticator=authenticator
+
+
+    iam_api_key= apikey,
+    url=url
+"""
+
+authenticator = IAMAuthenticator(os.environ["NATURAL_LANGUAGE_UNDERSTANDING_APIKEY"])
+apikey='NATURAL_LANGUAGE_UNDERSTANDING_APIKEY'
+url='NATURAL_LANGUAGE_UNDERSTANDING_URL'
+natural_language_understanding = NaturalLanguageUnderstandingV1(
+    version='2019-07-12',
+    authenticator=authenticator
+    
 )
 
-natural_language_understanding.set_service_url(os.environ.get("NATURAL_LANGUAGE_UNDERSTANDING_URL"))
+"""
+natural_language_understanding.set_service_url(os.environ["NATURAL_LANGUAGE_UNDERSTANDING_URL"])
+"""
 
 """
-INPUT: filepath to an input csv file 
-OUTPUT: csv file that contains courses, descriptions, keywords, concepts and subjects
+input: filepath to an input csv file 
+output: csv file that contains courses, descriptions, keywords, concepts and subjects
 Notes:
-- Make sure that your input file mirrors the formatting of the input file in 
+*Make sure that your input file mirrors the formatting of the input file in 
 ./data/discovery-nlu/input/ElementarySchoolClasses.csv
 """
+
+
 def extractEntities(input_filepath, output_filepath, course_level):
     df = pd.read_csv(input_filepath)
     (rows, _) = df.shape
@@ -73,13 +99,15 @@ def extractEntities(input_filepath, output_filepath, course_level):
 
 # Sample Function Calls
 extractEntities(
-"../data/discovery-nlu/input/HighSchoolClasses.csv",
-"../data/discovery-nlu/output/HighSchoolClasses_Analyzed.csv",
+"./data/discovery-nlu/input/HighSchoolClasses.csv",
+"./data/discovery-nlu/output/HighSchoolClasses_Analyzed.csv",
 course_level="High School",
 )
 
 extractEntities(
-"../data/discovery-nlu/input/ElementarySchoolClasses.csv",
-"../data/discovery-nlu/output/ElementarySchoolClasses_Analyzed.csv",
+"./data/discovery-nlu/input/ElementarySchoolClasses.csv",
+"./data/discovery-nlu/output/ElementarySchoolClasses_Analyzed.csv",
 course_level="Elementary School",
 )
+
+

@@ -2,7 +2,7 @@
 
 <br>
 <p align="center">
-  <img src="GIFs/Assistant.gif"  height="200">
+  <img src="GIFs/Assistant.gif"  width=1000 height="1000">
 </p>
 <br>
 

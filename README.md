@@ -184,13 +184,19 @@ From your Assistant panel, click on `Add search skill`.
 
 > **Note**: If you have provisioned Watson Assistant on IBM Cloud, the search skill is only offered on a paid plan, but a 30-day trial version is available if you click on the `Plus` button.
 
+<br>
+<p align="center">
+  <img src="GIFs/SearchSkill.gif">
+</p>
+<br>
+
 From the `Add Search Skill` panel, select the `Create skill` tab.
 
 Give your search skill a unique name, then click `Continue`.
 
 From the search skill panel, select the Discovery service instance and collection you created previously.
 
-** ADD GIF SHOWING HOW TO ADD A DIALOG SKILL **
+
 
 > **Note** Assistant can only connect to 1 Discovery collection at a time.  You will use either the elementary or high school collections and then discovery will respond appropriately.
 

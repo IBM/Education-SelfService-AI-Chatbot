@@ -113,7 +113,7 @@ npm install
  ```bash
  node read-file.js 
  ```
-- Verify the [JSON](../manualdocs) files.
+- Verify the [JSON](./data/manualdocs) files.
 
 
 ## 4. Configure Watson Discovery

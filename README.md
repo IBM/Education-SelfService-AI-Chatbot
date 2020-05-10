@@ -124,7 +124,7 @@ npm install
 
 <br>
 <p align="center">
-  <img src="GIFs/Discovery.gif"  width=400 height="800">
+  <img src="GIFs/Discovery.gif"  width=400 height="400">
 </p>
 <br>
 

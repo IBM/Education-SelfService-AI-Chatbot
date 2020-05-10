@@ -98,7 +98,7 @@ sudo pip3 install -U python-dotenv
 python NLUEntityExtraction.py
 ```
 
-> Note that this may take a few minutes. This will create 2 `.csv` files in the ./data/discovery-nlu/output directory. Take a look at the format by exploring the files.
+> Note that this may take a few minutes. This will create 2 [`.csv`](./data/discovery-nlu/output) files. Take a look at the format by exploring the files.
 
 - The last step to create a set `.json` files. This the format that Discovery accepts. Run a node program to convert the `.csv` file to a set of `.json` files in a directory named `manualdocs`.
 
@@ -113,7 +113,7 @@ npm install
  ```bash
  node read-file.js 
  ```
-- Verify JSON files are created in the `../data/manualdocs` directory.
+- Verify the [JSON](../data/manualdocs) files.
 
 
 ## 4. Configure Watson Discovery

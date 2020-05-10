@@ -42,8 +42,8 @@ NLU performs text analysis to extract meta-data such as concepts, entities, keyw
 ## Featured technologies
 
 * [Node.js Versions >= 6](https://nodejs.org/): An asynchronous event driven JavaScript runtime, designed to build scalable applications.
-* [Python V3.5+](https://www.python.org/downloads/)
-* [Pandas](https://pandas.pydata.org/)
+* [Python V3.5+](https://www.python.org/downloads/): Download the latest version of Python
+* [Pandas](https://pandas.pydata.org/): pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. 
 
 
 ## Pre-requsites
@@ -88,7 +88,7 @@ NLU enriches Discovery by creating the addition of metadata tags to your data se
 
 * Create a copy of the `env-sample` file and call it `.env`. Add in your NLU credentials. 
 
-- Extract entities and format the `.csv` files in the ./data/discovery-nlu/input directory in preparation for running through NLU. Do this by running the python program:  
+- The next step will run the [`.csv`](./data/discovery-nlu/input) files through NLU and extract entities and concepts. Do this by running the python program:  
 ```bash
 cd src
 pip install watson-developer-cloud==1.5
@@ -100,7 +100,7 @@ python NLUEntityExtraction.py
 
 > Note that this may take a few minutes. This will create 2 `.csv` files in the ./data/discovery-nlu/output directory. Take a look at the format by exploring the files.
 
-- The last step to prepare the data is to create a set `.json` files. This the format that NLU accepts. Run a node program to convert the `.csv` file to a set of `.json` files in a directory named `manualdocs`.
+- The last step to create a set `.json` files. This the format that Discovery accepts. Run a node program to convert the `.csv` file to a set of `.json` files in a directory named `manualdocs`.
 
 -  Install [Node.js](https://nodejs.org) (Versions >= 6).
 
@@ -113,9 +113,7 @@ npm install
  ```bash
  node read-file.js 
  ```
-- Verify JSON files are created in `../data/manualdocs` directory.
-
-</details>
+- Verify JSON files are created in the `../data/manualdocs` directory.
 
 
 ## 4. Configure Watson Discovery

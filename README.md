@@ -226,11 +226,13 @@ Learn more about the assistant search skill [here](https://cloud.ibm.com/docs/as
 
 Normally, you can test the dialog skill be selecting the `Try it` button located at the top right side of the dialog skill panel, but when integrated with a search skill, a different method of testing must be used.
 
-** ADD GIF SHOWING ASSISTANT PANEL **
+<br>
+<p align="center">
+  <img src="GIFs/PreviewLink.gif">
+</p>
+<br>
 
 From your assistant panel, select `Add Integrations`.
-
-![assistant-integration-button](doc/source/images/assistant-integration-button.png)
 
 From the list of available integration types, select `Preview link`.
 

@@ -240,9 +240,6 @@ From the `Preview link integration` panel, name your preview link and click `Cre
 
 If you click on the generated URL link, you will be able to interact with your dialog skill. Note that the input "Can you recommend a math class?" has triggered our `Which grade do you want recommendation for` dialog node and invoked our search skill.
 
-** ADD GIF OF ASSISTANT PANEL **
-![preview-link](doc/source/images/preview-link.png)
-
 
 ## Troubleshooting
 

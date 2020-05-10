@@ -212,7 +212,11 @@ Learn more about the assistant search skill [here](https://cloud.ibm.com/docs/as
 
 * From your Assistant panel, click on the three dots in the upper right-hand corner and select `Settings`.
 
-** ADD GIF SHOWING WHAT TO DO IN SETTINGS PANEL **
+<br>
+<p align="center">
+  <img src="GIFs/EnableSearchSkill.gif">
+</p>
+<br>
 
 * Select the `Search Skill` tab and ensure that is in `Enabled`.
 

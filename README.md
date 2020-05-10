@@ -122,7 +122,11 @@ npm install
 
 ### Create Discovery Collection
 
- ** ADD SCREEN GIF OF UPLOADING COLLECTION DATA ** 
+<br>
+<p align="center">
+  <img src="GIFs/Discovery.gif"  width=400 height="800">
+</p>
+<br>
 
 * Find the Discovery service in your IBM Cloud Dashboard.
 * Click on the service and then click on `Launch Watson Discovery`.

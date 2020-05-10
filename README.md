@@ -158,7 +158,11 @@ You will see that you now have the ability to add a:
 * Dialog skill
 * Search skill
 
-** ADD GIF OF ADDING A DIALOG SKILL ** 
+<br>
+<p align="center">
+  <img src="GIFs/DialogSkill.gif">
+</p>
+<br>
 
 * Click on `Add dialog skill`
 

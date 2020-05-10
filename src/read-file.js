@@ -39,7 +39,8 @@ function convert_csv_json() {
 		csv()
 		.fromFile(input_file2)
 		.then((jsonObj2)=>{
-		    for (let j = jsonObj1.length; j < jsonObj2.length; j++){
+                    totaldocs = jsonObj1.length + jsonObj2.length;
+		    for (let j = jsonObj1.length; j < totaldocs; j++){
 		        try {
 		            fileName='../data/manualdocs/' + j +'_elementary.json'
 		            fs.writeFileSync(fileName, JSON.stringify(jsonObj2[j]), { mode: 0o755 });

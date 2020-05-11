@@ -27,8 +27,8 @@ NLU performs text analysis to extract meta-data such as concepts, entities, keyw
 
 <img src="./images/architecture.png" alt="Architecture" /> 
 
-1. Execute Python program to run data set through Natural Language Understanding to extract the meta-data (e.g. course name, desciption,etc) and enrich the Discovery collection
-2. Run Node program to run data set through Natural Language Understanding to extract the meta-data (e.g. course name, desciption,etc) and enrich the Discovery collection
+1. Execute Python program to run data set through Natural Language Understanding to extract the meta-data (e.g. course name, desciption,etc) and enrich the `.csv` file
+2. Run Node program to convert `.csv` to `.json` files (required for the Discovery collection)
 3. Programmatially upload .json files into the Discovery Collection
 4. The user interacts through the chatbot via a Watson Assistant Dialog Skill
 5. When the student asks about course information, a search query is issued to the Watson Discovery service through a Watson Assistant search skill  Discovery returns the responses to the dialog

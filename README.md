@@ -81,7 +81,7 @@ Create the following services:
 
 > **NOTE**: use the `Plus` offering of Watson Assistant. You have access to a 30 day trial.
 
-* Create a copy of the `env-sample` file and call it `.env`. Add in your NLU and Discovery credentials. 
+* Create a copy of the `env-sample` file and call it `.env` Add in your NLU and Discovery credentials. 
 
 
 ## 3. Configure Watson NLU
@@ -103,9 +103,9 @@ python NLUEntityExtraction.py
 
 ## 4. Configure Watson Discovery
 
-### Create Discovery Collection
+Watson Discovery using AI search technology to retrieve answers to questions.  It contains language processessing capabilities and can be trained on both structured and unstructured data. The data that Discovery is trained on is contained within what is called a `Collection` (aka Database).  You can learn more about Watson Discovery [here](https://www.ibm.com/cloud/watson-discovery?p1=Search&p4=p50290480283&p5=b&cm_mmc=Search_Google-_-1S_1S-_-WW_NA-_-%2Bwatson%20%2Bdiscovery_b&cm_mmca7=71700000060917569&cm_mmca8=aud-852729272088:kwd-302050444300&cm_mmca9=CjwKCAjw7-P1BRA2EiwAXoPWA2T6YMa5zifdlmrwND-h_LlXb1JGHM0lpIVgWxjr-a12Zs9isU4OuhoC0_oQAvD_BwE&cm_mmca10=405891754210&cm_mmca11=b&gclid=CjwKCAjw7-P1BRA2EiwAXoPWA2T6YMa5zifdlmrwND-h_LlXb1JGHM0lpIVgWxjr-a12Zs9isU4OuhoC0_oQAvD_BwE&gclsrc=aw.ds)
 
-Discovery xxxxxxx
+### Create Discovery Collection
 
 1. First create a Discovery Collection. This is the database which will hold your response data.
 

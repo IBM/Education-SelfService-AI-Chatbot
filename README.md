@@ -27,11 +27,11 @@ NLU performs text analysis to extract meta-data such as concepts, entities, keyw
 
 <img src="./images/architecture.png" alt="Architecture" /> 
 
-1. Manually seed `.xls` file with data from course offerings found on the web and add it to the Discovery Collection
-2. Run script to run data set through Natural Language Understanding to extract the meta-data (e.g. course name, desciption,etc) and enrich the Discovery collection
-3. The user interacts through the chatbot via a Watson Assistant Dialog Skill
-4. When the student asks about course information, a search query is issued to the Watson Discovery service through a Watson Assistant search skill
-5. Discovery has been enriched from the data set run through NLU. It returns responses to the dialog
+1. Execute Python program to run data set through Natural Language Understanding to extract the meta-data (e.g. course name, desciption,etc) and enrich the Discovery collection
+2. Run Node program to run data set through Natural Language Understanding to extract the meta-data (e.g. course name, desciption,etc) and enrich the Discovery collection
+3. Programmatially upload .json files into the Discovery Collection
+4. The user interacts through the chatbot via a Watson Assistant Dialog Skill
+5. When the student asks about course information, a search query is issued to the Watson Discovery service through a Watson Assistant search skill  Discovery returns the responses to the dialog
 
 ## Included components
 
@@ -81,14 +81,14 @@ Create the following services:
 
 > **NOTE**: use the `Plus` offering of Watson Assistant. You have access to a 30 day trial.
 
+* Create a copy of the `env-sample` file and call it `.env`. Add in your NLU and Discovery credentials. 
+
 
 ## 3. Configure Watson NLU
 
 NLU enriches Discovery by creating the addition of metadata tags to your data sets.  In otherwords, include terms that overlap with words that users will actually provide in their queries.
 
-* Create a copy of the `env-sample` file and call it `.env`. Add in your NLU credentials. 
-
-- The next step will run the [`.csv`](./data/discovery-nlu/input) files through NLU and extract entities and concepts. Do this by running the python program:  
+- The following instructions has the developer run the [`.csv`](./data/discovery-nlu/input) files through NLU and extract entities and concepts. Do this by running the python program:  
 ```bash
 cd src
 pip install watson-developer-cloud==1.5
@@ -100,7 +100,25 @@ python NLUEntityExtraction.py
 
 > Note that this may take a few minutes. This will create 2 [`.csv`](./data/discovery-nlu/output) files. Take a look at the format by exploring the files.
 
-- The last step to create a set `.json` files. This the format that Discovery accepts. Run a node program to convert the `.csv` file to a set of `.json` files in a directory named `manualdocs`.
+
+## 4. Configure Watson Discovery
+
+### Create Discovery Collection
+
+Discovery xxxxxxx
+
+1. First create a Discovery Collection. This is the database which will hold your response data.
+
+* Find the Discovery service in your IBM Cloud Dashboard.
+* Click on the service and then click on `Launch Watson Discovery`.
+* Create a new data collection by hitting the `Upload your own data` button. You will see that you have one collection created that comes with Discovery by default. That is the `Watson Discovery News` collection. 
+* Provide a collection name - call it `Courses`
+* Select `English` language
+* Click `Create`
+
+You will need to configure Discovery in 2 steps:
+
+1. Create a set of `.json` files that Discovery will consume for its collection.   The [node program](./src/read-file.js) converts the `.csv` file to a set of `.json` files in a directory named `manualdocs`.
 
 -  Install [Node.js](https://nodejs.org) (Versions >= 6).
 
@@ -113,29 +131,20 @@ npm install
  ```bash
  node read-file.js 
  ```
-- Verify the [`JSON`](./data/manualdocs) files.
+- Verify the [`JSON`](./data/manualdocs) files exists.
 
+2. Programmatically upload the `.json` files into the discovery collection
 
-## 4. Configure Watson Discovery
+> ensure you have added your Discovery credentials into a .env file sitting in your root directory of your repo.
 
-### Create Discovery Collection
+```bash
+ npm install python-dotenv
+ npm install ibm-watson
+ node upload-file.js 
+ ```
 
-<br>
-<p align="center">
-  <img src="GIFs/Discovery.gif">
-</p>
-<br>
+ This will take approximately 5 minutes or leass. Documents are uploaded to your Courses Collection. Take a look and explore the collection.  You should see about 49 documents.
 
-* Find the Discovery service in your IBM Cloud Dashboard.
-* Click on the service and then click on `Launch Watson Discovery`.
-* Create a new data collection by hitting the `Upload your own data` button. You will see that you have one collection created that comes with Discovery by default. That is the `Watson Discovery News` collection. 
-* Provide a collection name - call it `Courses`
-* Select `English` language
-* Click `Create`
-
-* Use `Drag and drop your documents here or select documents` to seed the content with the documents in `./data/manualdocs/` of your cloned repo.
-
-> Note that this may take a few minutes. You should see a total of 49 documents.
 
 > **NOTE:** If using the Discovery Lite plan, you are limited to loading up to 1000 files into your discovery service. This limit is not per collection, but the combined number for all collections in your service.
 

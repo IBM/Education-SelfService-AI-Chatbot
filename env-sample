@@ -12,3 +12,9 @@
 # NATURAL_LANGUAGE_UNDERSTANDING_AUTH_TYPE=iam
 # NATURAL_LANGUAGE_UNDERSTANDING_APIKEY=<add_nlu_apikey>
 # NATURAL_LANGUAGE_UNDERSTANDING_URL=<add_nlu_url>
+
+# Watson Discovery
+# DISCOVERY_COLLECTION_ID=<add_new_discovery_collection_id>
+# DISCOVERY_ENVIRONMENT_ID=<add_new_discovery_environment_id>
+# DISCOVERY_APIKEY=<add_discovery_apikey>
+# DISCOVERY_URL=<add_discovery_url>

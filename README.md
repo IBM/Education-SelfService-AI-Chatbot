@@ -143,7 +143,7 @@ npm install
  node upload-file.js 
  ```
 
- This will take approximately 5 minutes or leass. Documents are uploaded to your Courses Collection. Take a look and explore the collection.  You should see about 49 documents.
+ This will take approximately 5 minutes or less. Documents are uploaded to your Courses Collection. Take a look and explore the collection.  You should see about 135 documents.
 
 
 > **NOTE:** If using the Discovery Lite plan, you are limited to loading up to 1000 files into your discovery service. This limit is not per collection, but the combined number for all collections in your service.

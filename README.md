@@ -10,17 +10,25 @@
 ## Description
 It is the year 2020 and students are experiencing a new way of life when it comes to getting an education. They are having to self-serve to fulfill their academic needs. Having access to an intelligent chat bot will help faciltate that process.  This pattern shows how to build a self-service platform that is applicable to not only education, but HR or other industry areas.
 
+Changed the content flow a bit using some of the content above. 
+It is the year 2020 and students are experiencing a new way of life when it comes to getting an education. Students are realizing they need to adopt a proactive and self-service mindset in to fulfill their academic needs. An intelligent chatbot that helps students find and access learning content supports this new self-service model. This pattern shows users how to build a self-service chatbot not only for education, but also for any other industries where users need to find information quickly and easily
+
 Using Watson Assistant, we will define a dialog to handle conversations between a student and course providers.  Students will ask for course recommendations that includes details about available course subjects.  We further enhance the conversation responses by using Watson Discovery via the Watson Assistant Search skill.  Natural Language Understanding (NLU) is introduced in this pattern to complement Watson Discovery's accuracy extracting custom fields for entities, concepts and categories.
+
+Changed the content flow a bit using some of the content above. 
+Using Watson Assistant, this pattern defines a dialog that a student and a course provider might experience as a student searches for learning content. Students can input grade-level and academic topics question, and the chatbot responds with course recommendations and learning content links. The conversation responses are further enhanced by using Watson Discovery and the Watson Assistant Search skill. Natural Language Understanding (NLU) is introduced in this pattern to complement Watson Discovery's accuracy by extracting custom fields for entities, concepts, and categories.
+
+
 
 ### What is an Assistant Search Skill?
 
-An Assistant search skill is a mechanism that allows you to directly query a Watson Discovery collection from your Assistant dialog. A search skill is triggered when the dialog reaches a node that has a search skill enabled. The user query is then passed to the Watson Discovery collection via the search skill, and the results are returned to the dialog for display to the user. Customizing how your documents are indexed into Discovery will improve the answers returned from queries.
+An Assistant search skill is a mechanism that allows you to directly query a Watson Discovery collection from your Assistant dialog. A search skill is triggered when the dialog reaches a node that has a search skill enabled. The user query is then passed to the Watson Discovery collection via the search skill, and the results are returned to the dialog for display to the user. Customizing how your documents are indexed into Discovery improves the answers returned from queries and what your users experience.
 
 Click [here](https://cloud.ibm.com/docs/assistant-data?topic=assistant-data-skill-search-add) for more information about the Watson Assistant search skill.
 
-### Why NLU
+### Why Natural Language Understanding (NLU)?
 
-NLU performs text analysis to extract meta-data such as concepts, entities, keywords and other types of categories of words. Data sets are then enriched with NLU-detected entities, keywords and concepts (e.g. course names, science).  Although Discovery provides great results, at times, a developer may find that the results are not getting the relevant results as one would like and may need to improve them. Discovery is built for "long-tail" use cases where the use case has many varied questions and results that you can't easily anticipate or optimize for. Additionally, if the corpus of documents is relatively small (less than 1000), Discovery doesn't have enough information to separate what terms might be important. Discovery can work with a copora this small - but it is less effective because it has less information about the relative frequency of terms in the domain you are working in.
+NLU performs text analysis to extract metadata such as concepts, entities, keywords, and other types of categories of words. Data sets are then enriched with NLU-detected entities, keywords, and concepts (for example, course names). Although Discovery provides great results, sometimes a developer finds that the results are not as relevant as they might be and that there is room for improvement. Discovery is built for "long-tail" use cases where the use case has many varied questions and results that you can't easily anticipate or optimize. Additionally, if the corpus of documents is relatively small (less than 1000), Discovery doesn't have enough information to distinguish important terms and unimportant terms. Discovery can work with a corpus this small - but it is less effective because it has less information about the relative frequency of terms in the domain. 
 
 
 ## Flow
@@ -31,19 +39,19 @@ NLU performs text analysis to extract meta-data such as concepts, entities, keyw
 2. Run Node program to convert `.csv` to `.json` files (required for the Discovery collection)
 3. Programmatially upload .json files into the Discovery Collection
 4. The user interacts through the chatbot via a Watson Assistant Dialog Skill
-5. When the student asks about course information, a search query is issued to the Watson Discovery service through a Watson Assistant search skill  Discovery returns the responses to the dialog
+5. When the student asks about course information, a search query is issued to the Watson Discovery service through a Watson Assistant search skill. Discovery returns the responses to the dialog
 
 ## Included components
 
 * [IBM Watson Assistant](https://www.ibm.com/cloud/watson-assistant/): Build, test and deploy a bot or virtual agent across mobile devices, messaging platforms, or even on a physical robot.
 * [IBM Watson Discovery](https://www.ibm.com/watson/services/discovery/): A cognitive search and content analytics engine for applications to identify patterns, trends, and actionable insights.
-* [IBM Watson Natural Language Understanding](https://www.ibm.com/watson/services/natural-language-understanding/): Analyze text to extract meta-data from content such as concepts, entities, keywords, categories, sentiment, emotion, relations, semantic roles, using natural language understanding.
+* [IBM Watson Natural Language Understanding](https://www.ibm.com/watson/services/natural-language-understanding/): Analyze text to extract metadata from content such as concepts, entities, keywords, categories, sentiment, emotion, relations, and semantic roles using natural language understanding.
 
 ## Featured technologies
 
 * [Node.js Versions >= 6](https://nodejs.org/): An asynchronous event driven JavaScript runtime, designed to build scalable applications.
 * [Python V3.5+](https://www.python.org/downloads/): Download the latest version of Python
-* [Pandas](https://pandas.pydata.org/): pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. 
+* [Pandas](https://pandas.pydata.org/): pandas is a fast, powerful, flexible, and easy-to-use open source data analysis and manipulation tool built on top of the Python programming language. 
 
 
 ## Pre-requsites
@@ -86,9 +94,9 @@ Create the following services:
 
 ## 3. Configure Watson NLU
 
-NLU enriches Discovery by creating the addition of metadata tags to your data sets.  In otherwords, include terms that overlap with words that users will actually provide in their queries.
+NLU enriches Discovery by creating the addition of metadata tags to your data sets.  In other words, includes terms that overlap with words that users might actually provide in their queries.
 
-- The following instructions has the developer run the [`.csv`](./data/discovery-nlu/input) files through NLU and extract entities and concepts. Do this by running the python program:  
+- The following instruction has the developer run the [`.csv`](./data/discovery-nlu/input) files through NLU and extract entities and concepts. Do this by running the python program:  
 ```bash
 cd src
 pip install watson-developer-cloud==1.5
@@ -107,7 +115,7 @@ Watson Discovery uses AI search technology to retrieve answers to questions.  It
 
 ### Create Discovery Collection
 
-1. First create a Discovery Collection. This is the database which will hold your response data.
+1. First create a Discovery Collection. This is the database that holds your response data.
 
 * Find the Discovery service in your IBM Cloud Dashboard.
 * Click on the service and then click on `Launch Watson Discovery`.

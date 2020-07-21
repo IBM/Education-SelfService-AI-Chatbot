@@ -13,7 +13,7 @@
     "watson-developer-cloud": "^3.7.0"
   },
   "devDependencies": {
-    "codecov": "^3.0.4",
+    "codecov": "^3.7.1",
     "csvjson": "^5.1.0",
     "eslint": "^5.1.0",
     "istanbul": "^0.4.5",
